@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Testimonials</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-1">
+            <%= testimonial.title %> 
+        </h1>
+        <div class="text-muted mb-2">
+            <%= testimonial.createdAt.toLocaleDateString() %>
+        </div>
+        <div class="mb-2">
+            <strong>Author Name: </strong><%= testimonial.authorName %>
+        </div>
+        <div class="mb-2">
+            <a href=<%= testimonial.authorImageUrl %> target="_blank">Author Img URL</a>
+        </div>
+        <div class="mb-2">
+            <strong>Keywords: </strong><%= testimonial.metadataKeywords %>
+        </div>
+        <div class="mb-2">
+            <strong>Testimonial: </strong><%= testimonial.testimonial %>
+        </div>
+        <div class="mb-2">
+            <strong>Published: </strong><%= testimonial.published==="on"?"Published":"Not Published" %>
+        </div>        
+        <a href="/testimonials" class="btn btn-secondary">All Testimonials</a>
+        <a href="/testimonials/edit/<%= testimonial.id %>" class="btn btn-info">Edit</a>
+        <a href="/testimonials/new" class="btn btn-warning">New Testimonial</a>
+    </div>
+</body>
+</html>

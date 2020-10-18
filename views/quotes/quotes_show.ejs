@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Quotes</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-1">
+            <%= quote.title %> 
+        </h1>
+        <div class="text-muted mb-2">
+            <%= quote.createdAt.toLocaleDateString() %>
+        </div>
+        <div class="mb-2">
+            <strong>Author Name: </strong><%= quote.authorName %>
+        </div>
+        <div class="mb-2">
+            <a href=<%= quote.authorImageUrl %> target="_blank">Author Img URL</a>
+        </div>
+        <div class="mb-2">
+            <strong>Keywords: </strong><%= quote.metadataKeywords %>
+        </div>
+        <div class="mb-2">
+            <strong>Quote: </strong><%= quote.quote %>
+        </div>
+        <div class="mb-2">
+            <strong>Published: </strong><%= quote.published==="on"?"Published":"Not Published" %>
+        </div>        
+        <a href="/quotes" class="btn btn-secondary">All Quotes</a>
+        <a href="/quotes/edit/<%= quote.id %>" class="btn btn-info">Edit</a>
+        <a href="/quotes/new" class="btn btn-warning">New Quote</a>
+    </div>
+</body>
+</html>

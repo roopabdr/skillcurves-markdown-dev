@@ -1,0 +1,34 @@
+<div class="form-group">
+    <label for="title">Title</label>
+    <input required value="<%=quote.title%>"  type="text" name="title" id="title" class="form-control"/>    
+</div>
+
+<div class="form-group">
+    <label for="authorName">Author Name</label>
+    <input value="<%=quote.authorName%>"  type="text" name="authorName" id="authorName" class="form-control" />
+</div>
+
+<div class="form-group">
+    <label for="authorImageUrl">Author Image URL</label>
+    <input value="<%=quote.authorImageUrl%>"  type="text" name="authorImageUrl" id="authorImageUrl" class="form-control"/>    
+</div>
+
+<div class="form-group">
+    <label for="metadataKeywords">Keywords</label>
+    <input required value="<%=quote.metadataKeywords%>"  type="text" name="metadataKeywords" id="metadataKeywords" class="form-control"/>    
+</div>
+
+<div class="form-group">
+    <label for="quote">Quote</label>
+    <textarea required name="quote" id="quote" class="form-control"><%=quote.quote%></textarea>
+</div>
+
+<div class="form-group">
+    <label class="switch" for="published">
+        <input type="checkbox" id="published" name="published" <%=quote.published==="on"?"checked":null%>>
+        <span class="slider round"></span>
+    </label>
+</div>
+
+<a href="/quotes" class="btn btn-secondary">Cancel</a>
+<button type="submit" class="btn btn-primary">Save</button>

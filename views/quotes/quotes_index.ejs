@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Skill Curves Quotes</title>
+</head>
+<body>
+    <div class="container">
+        
+        <h1 class="mb-4">Skill Curves Quotes</h1>
+        <form action="/logout?_method=DELETE" method="POST" class="d-inline float-right">
+            <button type="submit" class="btn btn-outline-danger">Logout</button>
+        </form>
+        <a href="/" class="btn btn-success">All Articles</a>
+        <a href="/quotes/new" class="btn btn-warning">New Quote</a>
+        <!-- changed here-->
+
+        <% quotes.forEach(quote => { %>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title"><%= quote.title %></h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        <%= quote.createdAt.toLocaleDateString() %>
+                    </div>
+                    <div class="card-text mb-2">
+                        <%= quote.description %> 
+                    </div>
+                    <a href="/quotes/<%= quote.slug %> " class="btn btn-primary">Read More</a>
+                    <a href="/quotes/edit/<%= quote.id %> " class="btn btn-info">Edit</a>
+                    <form action="/quotes/<%= quote.id %>?_method=DELETE" method="POST" class="d-inline float-right">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>            
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
